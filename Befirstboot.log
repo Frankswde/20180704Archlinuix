@@ -1,0 +1,50 @@
+#!/bin/bash
+#======================================================================================
+# Author  : Frank  at 2018-07-04
+# for : Dell Inspiron 15 7000 Gaming  install arch linux +
+# Hard Disk	256GB
+# RAM         	4GB
+#======================================================================================
+
+# network configuration
+ echo Archlinunx_lin > /etc/hostname
+ systemctl enable  dhcpcd.service
+ systemctl enable  sshd.service
+ vim /etc/ssh/sshd_config 
+
+# wifi insatll & Configure
+ pacman -S --noconfirm dialog wpa_supplicant netctl wireless_tools wpa_actiond
+
+# Configure Local
+ vim /etc/locale.gen 
+ locale-gen
+ echo 'LANG="en_US.UTF-8"' > /etc/locale.conf
+
+# Configure timezone 
+ ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+ hwclock --systohc --utc
+
+# User configuration 
+ passwd 
+ useradd -m -g users -G wheel -s /bin/bash swde
+ passwd swde
+ visudo 
+
+#function install_yaourt
+ cp /etc/pacman.conf /etc/pacman.conf.default
+ echo "[archlinuxcn]" >> /etc/pacman.conf
+ echo "SigLevel = Never" >> /etc/pacman.conf
+ echo "Server = http://repo.archlinuxcn.org/$arch" >> /etc/pacman.conf
+ vim /etc/pacman.conf 
+ pacman -Syy
+ pacman -S  --noconfirm yaourt
+
+# Desktop environment
+ yaourt -S --noconfirm  xdg-user-dirs
+ su swde
+ xdg-user-dirs-update
+
+# install grubvim
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub
+grub-mkconfig -o /boot/grub/grub.cfg 
+mkinitcpio -p linux 

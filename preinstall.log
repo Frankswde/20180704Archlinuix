@@ -1,0 +1,35 @@
+#!/bin/bash
+#======================================================================================
+# Author  : Frank  at 2018-07-04
+# for :DELL Dell Inspiron 15 7000 Gaming install arch linux 
+# Hard Disk	256GB
+# RAM         	8GB
+#======================================================================================
+
+# time update
+  timedatectl set-ntp true
+
+# format 256GB 1GB efi/35GB root/200GB home 
+  mkfs.fat -F32 /dev/sda1
+  mkfs.ext4 /dev/sda2
+  mkfs.ext4 /dev/sda3
+
+# SWAP 2GB  
+  mkswap /dev/sda4
+  swapon /dev/sda4
+
+# mount & mkdir  
+  mount /dev/sda2 /mnt
+  mkdir /mnt/home /mnt/boot
+  mkdir /mnt/boot/efi
+  mount /dev/sda3 /mnt/home
+  mount /dev/sda1 /mnt/boot/efi
+
+# install base 
+  pacstrap /mnt base base-devel vim openssh grub grub-bios efibootmgr intel-ucode
+# creat fstab
+  genfstab -U /mnt >> /mnt/etc/fstab
+
+# chang root to /mnt
+  arch-chroot /mnt
+
