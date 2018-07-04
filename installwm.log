@@ -1,0 +1,42 @@
+#!/bin/bash
+#======================================================================================
+# Author  : Frank  at 2018-07-04
+# for :  Dell Inspiron 15 7000 Gaming   install arch linux +
+# Hard Disk		256GB
+# RAM         	       8GB
+#======================================================================================
+
+# Install Graphics driver   
+  yaourt -S --noconfirm  xf86-video-intel 
+  yaourt -S --noconfirm  xf86-video-vesa
+  yaourt -S --noconfirm  nvidia 
+
+
+  yaourt -S --noconfirm   system-config-printer gtk3-print-backends blueberry orca mousetweaks arc-gtk-theme arc-icon-theme
+  yaourt -S  --noconfirm  xf86-input-evdev xf86-input-keyboard xf86-input-mouse xf86-input-void libinput
+
+# Install X-windows
+  yaourt -S --noconfirm xorg xorg-xinit xorg-server xorg-server-utils
+  yaourt -S --noconfirm xorg xorg-xinit xorg-server 
+  yaourt -S --noconfirm xorg-twm xterm xorg-xclock
+
+# Install Desktop environment 
+  yaourt -S --noconfirm mate mate-extra
+
+# Insatll fcix
+  yaourt -S --noconfirm fcitx fcitx-im  fcitx-configtool fcitx-sunpinyin fcitx-chewing 
+
+# install web bor 
+  yaourt -S --noconfirm  firefox epiphany flashplugin
+
+# install i3 feh conky
+  yaourt -S --noconfirm  feh conky  compton i3-gaps
+
+# install i3 like depend
+  yaourt -S --noconfirm  xfce4-terminal xfce4-screenshooter xfce4-notifyd konsole
+  yaourt -S --noconfirm gnome-keyring gnome-system-monitor gnome-screenshot screenfetch rofi gedit
+  yaourt -S --noconfirm  pulseaudio pulseaudio-alsa pavucontrol 
+ 
+# Install  Display manager
+  yaourt -S  --noconfirm   lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+  sudo systemctl enable lightdm.service
