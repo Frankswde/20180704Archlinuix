@@ -84,11 +84,11 @@
 >>
 >>  sudo modprobe vboxnetflt
 ># 開機自動載入 VirtualBox 模組
->>  sudo echo vboxdrv > /etc/modules-load.d/virtualbox.conf
+>>  sudo echo vboxdrv >> /etc/modules-load.d/virtualbox.conf
 >>
->>  sudo echo vboxnetadp > /etc/modules-load.d/virtualbox.conf
+>>  sudo echo vboxnetadp >> /etc/modules-load.d/virtualbox.conf
 >>
->>  sudo echo vboxnetflt > /etc/modules-load.d/virtualbox.conf
+>>  sudo echo vboxnetflt >> /etc/modules-load.d/virtualbox.conf
 
  
 
