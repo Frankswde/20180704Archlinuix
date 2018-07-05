@@ -40,3 +40,14 @@
 # Install  Display manager
   yaourt -S  --noconfirm   lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo systemctl enable lightdm.service
+
+# install VirtualBox 
+  yaourt -S  --noconfirm virtualbox
+  sudo modprobe vboxdrv
+  sudo modprobe vboxnetadp
+  sudo modprobe vboxnetflt
+
+# 開機自動載入 VirtualBox 模組
+  sudo echo vboxdrv >> /etc/modules-load.d/virtualbox.conf
+  sudo echo vboxnetadp >> /etc/modules-load.d/virtualbox.conf
+  sudo echo vboxnetflt >> /etc/modules-load.d/virtualbox.conf
