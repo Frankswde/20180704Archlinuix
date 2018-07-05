@@ -21,6 +21,7 @@
 >> 7/2  用 Rufus 來製作可安裝 Windows 用的開機隨身碟， 藉由 USB 安裝系統 ok
 >> 
 >> P.S 筆電需要用UEFI mode 開機，所以不能用混合模式的設定
+>>
 > linux mint
 >> 7/2  用 YUMI-UEFI-0.0.0.8.exe 來製作可安裝 Windows 用的開機隨身碟， 藉由 USB 安裝系統 ok
 >>
