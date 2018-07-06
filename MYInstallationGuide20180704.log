@@ -1,0 +1,25 @@
+Contents
+Pre-installation
+	Set the keyboard layout
+	Verify the boot mode
+	Connect to the Internet
+	Update the system clock
+	Partition the disks
+	Format the partitions
+	Mount the file systems
+Installation
+	Select the mirrors
+	Install the base packages
+Configure the base system
+	Fstab
+	Chroot
+	Time zone
+	Locale
+	Network configuration
+	Initramfs
+	Root password
+	Boot loader
+ 	Reboot
+ 	Post-installation
+
+
